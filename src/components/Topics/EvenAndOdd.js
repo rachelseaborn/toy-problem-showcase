@@ -21,25 +21,29 @@ export default class EvenAndOdd extends Component {
     assignEvenAndOdds(userInput) {
         let evenArr = [];
         let oddArr = [];
-        let inputStr = userInput;
-        let inputArr = [];
+        let inputArr = userInput.split(',');
 
-        inputArr.push(userInput)
+        //inputArr.push(userInput)
+        //console.log(inputArr) //arr gets input value but 
+
         for (let i = 0; i < inputArr.length; i++) {
             if (inputArr[i] % 2 === 0) {
-                evenArr.push(i)
+                evenArr.push(inputArr[i])
+                console.log(evenArr)
             }
             else {
-                oddArr.push(i)
+                oddArr.push(inputArr[i])
+                //console.log(oddArr)
             }
         }
+        this.setState({ evenArray: evenArr, oddArray: oddArr });
     }
 
 
     render() {
         return (
             <div className="puzzleBox evenAndOddPB" >
-                <h4>Evens and Odds</h4>  //JSX notation for UI rendering
+                <h4>Evens and Odds</h4>
                 <input className="inputLine" onChange={(e) => this.handleChange(e.target.value)} />
                 < button className="confirmationButton" onClick={() => { this.assignEvenAndOdds(this.state.userInput) }} >Split</button>
                 <span className="resultsBox">Evens: {JSON.stringify(this.state.evenArray)}</span>
