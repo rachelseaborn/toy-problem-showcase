@@ -4,10 +4,10 @@ import React, { Component } from 'react';
 
 
 export default class EvenAndOdd extends Component {
-    constructor() {
-        super();
+    constructor() {  //To hold state (object)
+        super(); //Allows us to set state
 
-        this.state = {
+        this.state = {   //an object
             evenArray: [],
             oddArray: [],
             userInput: ''
@@ -21,28 +21,30 @@ export default class EvenAndOdd extends Component {
     assignEvenAndOdds(userInput) {
         let evenArr = [];
         let oddArr = [];
-        let inputString = userInput //something else
+        let inputStr = userInput;
+        let inputArr = [];
 
-        for (i = 0; i < arrInput.length; i++)
-            if (i % 2 === 0) {
+        inputArr.push(userInput)
+        for (let i = 0; i < inputArr.length; i++) {
+            if (inputArr[i] % 2 === 0) {
                 evenArr.push(i)
             }
             else {
                 oddArr.push(i)
             }
-    }
-}
+        }
     }
 
-render() {
-    return (
-        <div className="puzzleBox evenAndOddPB" >
-            <h4>Evens and Odds</h4>
-            <input className="inputLine" onChange={(e) => this.handleChange(e.target.value)} />
-            < button className="confirmationButton" onClick={() => { this.assignEvenAndOdds(this.state.userInput) }} >Split</button>
-            <span className="resultsBox">Evens: {JSON.stringify(this.state.evenArray)}</span>
-            <span className="resultsBox">Odds: {JSON.stringify(this.state.oddArray)}</span>
-        </div>
-    )
-}
+
+    render() {
+        return (
+            <div className="puzzleBox evenAndOddPB" >
+                <h4>Evens and Odds</h4>  //JSX notation for UI rendering
+                <input className="inputLine" onChange={(e) => this.handleChange(e.target.value)} />
+                < button className="confirmationButton" onClick={() => { this.assignEvenAndOdds(this.state.userInput) }} >Split</button>
+                <span className="resultsBox">Evens: {JSON.stringify(this.state.evenArray)}</span>
+                <span className="resultsBox">Odds: {JSON.stringify(this.state.oddArray)}</span>
+            </div>
+        )
+    }
 }
